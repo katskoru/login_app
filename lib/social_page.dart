@@ -116,6 +116,7 @@ class _SocialPageState extends State<SocialPage> {
           ElevatedButton.icon(
               onPressed: () {},
               icon: Icon(Icons.logout),
+              //style: ButtonStyle(shape: ),
               label: Text("Log Out"))
         ],
       ),
