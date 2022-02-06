@@ -9,6 +9,8 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _customTileExpanded = false;
+  bool _firstTileExpanded = false;
+  bool _lastTileExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,12 +19,12 @@ class _SettingsPageState extends State<SettingsPage> {
         Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-            title: Text(
+            title: const Text(
               "General Settings",
               style: TextStyle(fontSize: 30),
             ),
             trailing: Icon(
-              _customTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              _firstTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               size: 40.0,
             ),
             children: <Widget>[
@@ -30,6 +32,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus felis eros, id vulputate tellus vehicula non. Ut vitae laoreet lorem. Donec ac metus vestibulum erat semper fermentum. Etiam varius lectus et convallis gravida. Aenean id porta odio, faucibus malesuada orci.")),
             ],
+            onExpansionChanged: (bool expanded) {
+              setState(() => _firstTileExpanded = expanded);
+            },
           ),
         ),
         Divider(
@@ -67,7 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
           child: ExpansionTile(
             title: Text("Data Policy", style: TextStyle(fontSize: 30)),
             trailing: Icon(
-              _customTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              _lastTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               size: 40.0,
             ),
             children: <Widget>[
@@ -75,6 +80,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: Text(
                       "Pellentesque tellus justo, elementum vitae sagittis faucibus, varius quis nunc.")),
             ],
+            onExpansionChanged: (bool expanded) {
+              setState(() => _lastTileExpanded = expanded);
+            },
           ),
         ),
         Divider(

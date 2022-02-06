@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.purple, Colors.orange])),
+              colors: [Colors.purple, Colors.green])),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.transparent,
