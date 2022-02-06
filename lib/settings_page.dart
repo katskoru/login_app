@@ -14,34 +14,50 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
         body: Column(
       children: [
-        const ExpansionTile(
-          title: Text('ExpansionTile 1'),
-          subtitle: Text('Trailing expansion arrow icon'),
+        ExpansionTile(
+          title: Text(
+            "General Settings",
+            style: TextStyle(fontSize: 30),
+          ),
+          trailing: Icon(
+            _customTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+            size: 40.0,
+          ),
           children: <Widget>[
-            ListTile(title: Text('This is tile number 1')),
+            ListTile(
+                title: Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus felis eros, id vulputate tellus vehicula non. Ut vitae laoreet lorem. Donec ac metus vestibulum erat semper fermentum. Etiam varius lectus et convallis gravida. Aenean id porta odio, faucibus malesuada orci.")),
           ],
         ),
         ExpansionTile(
-          title: const Text('ExpansionTile 2'),
-          subtitle: const Text('Custom expansion arrow icon'),
+          title: const Text(
+            "User Settings",
+            style: TextStyle(fontSize: 30),
+          ),
           trailing: Icon(
-            _customTileExpanded
-                ? Icons.arrow_drop_down_circle
-                : Icons.arrow_drop_down,
+            _customTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+            size: 40.0,
           ),
           children: const <Widget>[
-            ListTile(title: Text('This is tile number 2')),
+            ListTile(
+                title: Text(
+              "Quisque lacus magna, interdum blandit orci at, porttitor placerat enim. Maecenas rutrum, nulla et porta efficitur, nisi diam pellentesque ex, nec commodo turpis ligula quis tellus. ",
+            )),
           ],
           onExpansionChanged: (bool expanded) {
             setState(() => _customTileExpanded = expanded);
           },
         ),
-        const ExpansionTile(
-          title: Text('ExpansionTile 3'),
-          subtitle: Text('Leading expansion arrow icon'),
-          controlAffinity: ListTileControlAffinity.leading,
+        ExpansionTile(
+          title: Text("Data Policy", style: TextStyle(fontSize: 30)),
+          trailing: Icon(
+            _customTileExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+            size: 40.0,
+          ),
           children: <Widget>[
-            ListTile(title: Text('This is tile number 3')),
+            ListTile(
+                title: Text(
+                    "Pellentesque tellus justo, elementum vitae sagittis faucibus, varius quis nunc.")),
           ],
         ),
       ],

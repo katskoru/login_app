@@ -114,6 +114,9 @@ class _SocialPageState extends State<SocialPage> {
               },
             ),
           ),
+          SizedBox(
+            height: 260,
+          ),
           ElevatedButton(
             onPressed: () {
               setState(() {
