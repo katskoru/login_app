@@ -31,6 +31,18 @@ class _SocialPageState extends State<SocialPage> {
         physics: NeverScrollableScrollPhysics(),
         children: [FeedPage(), SettingsPage()],
       ),
+      floatingActionButton: Container(
+        height: 80.0,
+        width: 80.0,
+        child: FloatingActionButton(
+          backgroundColor: Colors.purple,
+          child: Icon(
+            Icons.add_photo_alternate,
+            size: 50.0,
+          ),
+          onPressed: () {},
+        ),
+      ),
     );
   }
 
@@ -114,7 +126,7 @@ class _SocialPageState extends State<SocialPage> {
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 260,
           ),
           ElevatedButton(
@@ -124,17 +136,16 @@ class _SocialPageState extends State<SocialPage> {
                     MaterialPageRoute(builder: (context) {
                   return LoginPage();
                 }));
-                ;
               });
             },
-            child: Icon(
+            child: const Icon(
               Icons.power_settings_new,
               color: Colors.white,
-              size: 40.0,
+              size: 50.0,
             ),
             style: ElevatedButton.styleFrom(
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(20),
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(20),
               primary: Colors.red,
             ),
           )
