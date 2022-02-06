@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:login_page/feed_page.dart';
+import 'package:login_page/settings_page.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _SocialPageState extends State<SocialPage> {
       body: PageView(
         controller: controller,
         physics: NeverScrollableScrollPhysics(),
-        children: [FeedPage(), Container()],
+        children: [FeedPage(), SettingsPage()],
       ),
     );
   }
@@ -112,6 +113,10 @@ class _SocialPageState extends State<SocialPage> {
               },
             ),
           ),
+          ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.logout),
+              label: Text("Log Out"))
         ],
       ),
     );

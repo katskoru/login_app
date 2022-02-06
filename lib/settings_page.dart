@@ -1,22 +1,50 @@
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool _customTileExpanded = false;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView.separated(
-        separatorBuilder: (context, index) => Divider(
-          color: Colors.black,
+        body: Column(
+      children: [
+        const ExpansionTile(
+          title: Text('ExpansionTile 1'),
+          subtitle: Text('Trailing expansion arrow icon'),
+          children: <Widget>[
+            ListTile(title: Text('This is tile number 1')),
+          ],
         ),
-        itemCount: 20,
-        itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Center(child: Text("Index $index")),
+        ExpansionTile(
+          title: const Text('ExpansionTile 2'),
+          subtitle: const Text('Custom expansion arrow icon'),
+          trailing: Icon(
+            _customTileExpanded
+                ? Icons.arrow_drop_down_circle
+                : Icons.arrow_drop_down,
+          ),
+          children: const <Widget>[
+            ListTile(title: Text('This is tile number 2')),
+          ],
+          onExpansionChanged: (bool expanded) {
+            setState(() => _customTileExpanded = expanded);
+          },
         ),
-      ),
-    );
+        const ExpansionTile(
+          title: Text('ExpansionTile 3'),
+          subtitle: Text('Leading expansion arrow icon'),
+          controlAffinity: ListTileControlAffinity.leading,
+          children: <Widget>[
+            ListTile(title: Text('This is tile number 3')),
+          ],
+        ),
+      ],
+    ));
   }
 }
