@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                                 _isInitialValue = !_isInitialValue;
                               });
                             },
-                            icon: Icon(Icons.visibility_outlined),
+                            icon: Icon(Icons.visibility),
                           )),
                     ),
                   ),
