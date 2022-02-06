@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
-  const MyCard({Key? key, required this.newsTitle, required this.imgUrl})
+  MyCard(
+      {Key? key,
+      required this.newsTitle,
+      required this.imgUrl,
+      required this.myHandler})
       : super(key: key);
   final String newsTitle;
   final String imgUrl;
+  final VoidCallback myHandler;
+  var mem;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () => myHandler(),
         child: Card(
           color: Colors.blue,
           elevation: 6.0,

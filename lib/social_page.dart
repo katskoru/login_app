@@ -21,7 +21,7 @@ class _SocialPageState extends State<SocialPage> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 10.0,
-        title: Text(
+        title: const Text(
           "Social_Page",
           style: TextStyle(color: Colors.black),
         ),
@@ -30,18 +30,6 @@ class _SocialPageState extends State<SocialPage> {
         controller: controller,
         physics: NeverScrollableScrollPhysics(),
         children: [FeedPage(), SettingsPage()],
-      ),
-      floatingActionButton: Container(
-        height: 80.0,
-        width: 80.0,
-        child: FloatingActionButton(
-          backgroundColor: Colors.purple,
-          child: Icon(
-            Icons.add_photo_alternate,
-            size: 50.0,
-          ),
-          onPressed: () {},
-        ),
       ),
     );
   }
