@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:login_page/feed_page.dart';
+import 'package:login_page/login_page.dart';
 import 'package:login_page/settings_page.dart';
 
 class SocialPage extends StatefulWidget {
@@ -113,11 +114,27 @@ class _SocialPageState extends State<SocialPage> {
               },
             ),
           ),
-          ElevatedButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.logout),
-              //style: ButtonStyle(shape: ),
-              label: Text("Log Out"))
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return LoginPage();
+                }));
+                ;
+              });
+            },
+            child: Icon(
+              Icons.power_settings_new,
+              color: Colors.white,
+              size: 40.0,
+            ),
+            style: ElevatedButton.styleFrom(
+              shape: CircleBorder(),
+              padding: EdgeInsets.all(20),
+              primary: Colors.red,
+            ),
+          )
         ],
       ),
     );
