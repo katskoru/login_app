@@ -17,22 +17,26 @@ class _FeedPageState extends State<FeedPage> {
     "https://images.pexels.com/photos/9748197/pexels-photo-9748197.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     "https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   ];
+  int index1 = 0;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Expanded(
-          child: ListView.builder(
-              itemCount: imgList.length,
-              itemBuilder: (context, index) {
-                String myTitle = (index + 1).toString();
-                return MyCard(
-                  imgUrl: imgList[index],
-                  newsTitle: myTitle,
-                );
-              }),
-        ),
+        ListView.builder(
+            itemCount: imgList.length,
+            itemBuilder: (context, index) {
+              String myTitle = (index + 1).toString();
+              return MyCard(
+                removeImg: () {
+                  setState(() {
+                    imgList.remove(imgList[index]);
+                  });
+                },
+                imgUrl: imgList[index],
+                newsTitle: myTitle,
+              );
+            }),
         Positioned(
           bottom: 15.0,
           right: 15.0,
@@ -47,8 +51,8 @@ class _FeedPageState extends State<FeedPage> {
               ),
               onPressed: () {
                 setState(() {
-                  int index1 = 0;
                   index1 += 1;
+                  //jak zrobić, żeby zapamiętało w liście
                   imgList.add(imgList2[index1]);
                 });
               },
