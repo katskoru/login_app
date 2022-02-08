@@ -17,7 +17,7 @@ class MyCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          removeImg;
+          removeImg();
         },
         child: Card(
           color: Colors.blue,

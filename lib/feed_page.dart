@@ -31,6 +31,7 @@ class _FeedPageState extends State<FeedPage> {
                 removeImg: () {
                   setState(() {
                     imgList.remove(imgList[index]);
+                    print("object");
                   });
                 },
                 imgUrl: imgList[index],
@@ -51,9 +52,9 @@ class _FeedPageState extends State<FeedPage> {
               ),
               onPressed: () {
                 setState(() {
-                  index1 += 1;
                   //jak zrobić, żeby zapamiętało w liście
                   imgList.add(imgList2[index1]);
+                  index1 += 1;
                 });
               },
             ),
