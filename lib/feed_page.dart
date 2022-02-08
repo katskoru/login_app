@@ -11,11 +11,12 @@ class _FeedPageState extends State<FeedPage> {
     "https://images.pexels.com/photos/7363753/pexels-photo-7363753.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
   ];
 
-  List<String> imgList2 = [
+  List imgList2 = [
     "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     "https://images.pexels.com/photos/9748197/pexels-photo-9748197.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     "https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    "https://cont4.naekranie.pl/media/cache/amp/2014/10/this-is-the-end-tr.jpg",
   ];
   int index1 = 0;
 
@@ -31,7 +32,6 @@ class _FeedPageState extends State<FeedPage> {
                 removeImg: () {
                   setState(() {
                     imgList.remove(imgList[index]);
-                    print("object");
                   });
                 },
                 imgUrl: imgList[index],
@@ -53,8 +53,12 @@ class _FeedPageState extends State<FeedPage> {
               onPressed: () {
                 setState(() {
                   //jak zrobić, żeby zapamiętało w liście
-                  imgList.add(imgList2[index1]);
-                  index1 += 1;
+                  if (index1 <= 3) {
+                    imgList.add(imgList2[index1]);
+                    index1 += 1;
+                  } else {
+                    imgList.add((imgList2[4]));
+                  }
                 });
               },
             ),

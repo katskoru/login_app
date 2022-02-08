@@ -16,7 +16,7 @@ class MyCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () {
+        onLongPress: () {
           removeImg();
         },
         child: Card(
@@ -43,7 +43,7 @@ class MyCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "News $newsTitle",
+                          "Post No. $newsTitle",
                           style: const TextStyle(
                             fontSize: 20.0,
                           ),
