@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_page.dart';
+
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -98,7 +100,14 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           TextButton(
             style: TextButton.styleFrom(primary: Colors.red),
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return LoginPage();
+                }));
+              });
+            },
             child: const Text(
               "Delete Account",
               style: TextStyle(fontSize: 30.0),
