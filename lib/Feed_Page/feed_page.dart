@@ -8,15 +8,13 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   List<String> imgList = [
-    "https://images.pexels.com/photos/7363753/pexels-photo-7363753.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    "./assets/img/1.jpg",
   ];
 
   List imgList2 = [
-    "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "https://images.pexels.com/photos/9748197/pexels-photo-9748197.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    "https://cont4.naekranie.pl/media/cache/amp/2014/10/this-is-the-end-tr.jpg",
+    "./assets/img/2.jpg",
+    "./assets/img/3.jpg",
+    "./assets/img/4.jpg",
   ];
   int index1 = 0;
 

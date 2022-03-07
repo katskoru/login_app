@@ -31,7 +31,7 @@ class MyCard extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(imgUrl), fit: BoxFit.cover)),
+                            image: AssetImage(imgUrl), fit: BoxFit.cover)),
                   ),
                 ),
                 Positioned(
