@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        unselectedWidgetColor: Colors.black,
+        appBarTheme: AppBarTheme(color: Colors.white),
         primarySwatch: Colors.blue,
       ),
       home: const LoginPage(),

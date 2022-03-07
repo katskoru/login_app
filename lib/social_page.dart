@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:login_page/Settings/Feed_Page/feed_page.dart';
+import 'package:login_page/Feed_Page/feed_page.dart';
 import 'package:login_page/login_page.dart';
 import 'package:login_page/Settings/settings_page.dart';
+
+import 'Feed_Page/feed_page.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({Key? key}) : super(key: key);
@@ -13,22 +15,41 @@ class SocialPage extends StatefulWidget {
 
 class _SocialPageState extends State<SocialPage> {
   PageController controller = PageController();
+
+  String _title = "Social_Page";
+
+  void onPageChanged(int page) {
+    String _temptitle = "";
+
+    switch (page) {
+      case 0:
+        _temptitle = "Social_Page";
+        break;
+      case 1:
+        _temptitle = "Settings";
+        break;
+    }
+    setState(() {
+      this._title = _temptitle;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: myDrawer(),
       appBar: AppBar(
+        elevation: 6.0,
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 10.0,
-        title: const Text(
-          "Social_Page",
+        title: Text(
+          _title,
           style: TextStyle(color: Colors.black),
         ),
       ),
+      endDrawer: myDrawer(),
       body: PageView(
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),
+        onPageChanged: onPageChanged,
         children: [
           FeedPage(),
           SettingsPage(),

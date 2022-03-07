@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/Settings/Feed_Page/feed_page.dart';
+import 'package:login_page/Feed_Page/feed_page.dart';
 import 'package:login_page/social_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controller = TextEditingController();
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -29,27 +29,27 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
               child: SingleChildScrollView(
                 child: Column(children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 150.0,
                     backgroundImage:
                         AssetImage('assets/img/pexels-photo-220453.jpeg'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
-                  Text(
+                  const Text(
                     "Peter Black",
                     style:
                         TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
-                  Text(
+                  const Text(
                     "Welcome back!",
                     style: TextStyle(fontSize: 25.0),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15.0,
                   ),
                   Material(
@@ -74,7 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                                 _isInitialValue = !_isInitialValue;
                               });
                             },
-                            icon: Icon(Icons.visibility),
+                            icon: _isInitialValue == true
+                                ? Icon(Icons.visibility)
+                                : Icon(Icons.visibility_off),
                           )),
                     ),
                   ),
