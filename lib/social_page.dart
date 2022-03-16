@@ -39,10 +39,10 @@ class _SocialPageState extends State<SocialPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 6.0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           _title,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       endDrawer: myDrawer(),
@@ -52,7 +52,7 @@ class _SocialPageState extends State<SocialPage> {
         onPageChanged: onPageChanged,
         children: [
           FeedPage(),
-          SettingsPage(),
+          const SettingsPage(),
         ],
       ),
     );

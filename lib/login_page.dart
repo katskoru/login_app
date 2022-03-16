@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 270.0,
                     height: 50.0,
                     child: ElevatedButton(
-                      onPressed: controller.text.length == 12
+                      onPressed: controller.text.length == 10
                           ? () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {

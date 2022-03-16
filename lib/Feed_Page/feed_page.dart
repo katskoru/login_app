@@ -45,21 +45,21 @@ class _FeedPageState extends State<FeedPage> {
               width: 80.0,
               child: FloatingActionButton(
                 backgroundColor: Colors.purple,
-                child: const Icon(
-                  Icons.add_photo_alternate,
+                child: Icon(
+                  index1 <= 2
+                      ? Icons.add_photo_alternate
+                      : Icons.done_outline_sharp,
                   size: 50.0,
                 ),
-                onPressed: () {
-                  setState(() {
-                    //jak zrobić, żeby zapamiętało w liście
-                    if (index1 <= 3) {
-                      imgList.add(imgList2[index1]);
-                      index1 += 1;
-                    } else {
-                      imgList.add((imgList2[4]));
-                    }
-                  });
-                },
+                onPressed: index1 <= 2
+                    ? () {
+                        setState(() {
+                          //jak zrobić, żeby zapamiętało w liście
+                          imgList.add(imgList2[index1]);
+                          index1 += 1;
+                        });
+                      }
+                    : null,
               ),
             ),
           ),
