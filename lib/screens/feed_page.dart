@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_page/widgets/my_card.dart';
+import 'package:provider/provider.dart';
+
+import '../state_provider.dart';
 
 class FeedPage extends StatefulWidget {
   const FeedPage({Key? key}) : super(key: key);
@@ -9,19 +12,11 @@ class FeedPage extends StatefulWidget {
 }
 
 class _FeedPageState extends State<FeedPage> {
-  List<String> imgList = [
-    "./assets/img/1.jpg",
-  ];
-
-  List imgList2 = [
-    "./assets/img/2.jpg",
-    "./assets/img/3.jpg",
-    "./assets/img/4.jpg",
-  ];
-  int index1 = 0;
-
   @override
   Widget build(BuildContext context) {
+    List<String> imgList =
+        Provider.of<StateProvider>(context, listen: true).imgList;
+    int index1 = Provider.of<StateProvider>(context, listen: false).index1;
     return Scaffold(
       body: Stack(
         children: [
@@ -31,9 +26,8 @@ class _FeedPageState extends State<FeedPage> {
                 String myTitle = (index + 1).toString();
                 return MyCard(
                   removeImg: () {
-                    setState(() {
-                      imgList.remove(imgList[index]);
-                    });
+                    Provider.of<StateProvider>(context, listen: false)
+                        .removeFromList(index);
                   },
                   imgUrl: imgList[index],
                   newsTitle: myTitle,
@@ -48,18 +42,15 @@ class _FeedPageState extends State<FeedPage> {
               child: FloatingActionButton(
                 backgroundColor: Colors.purple,
                 child: Icon(
-                  index1 <= 2
+                  index1 <= 3
                       ? Icons.add_photo_alternate
                       : Icons.done_outline_sharp,
                   size: 50.0,
                 ),
-                onPressed: index1 <= 2
+                onPressed: index1 <= 3
                     ? () {
-                        setState(() {
-                          //jak zrobić, żeby zapamiętało w liście
-                          imgList.add(imgList2[index1]);
-                          index1 += 1;
-                        });
+                        Provider.of<StateProvider>(context, listen: false)
+                            .addToList();
                       }
                     : null,
               ),

@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     bool _isInitialValue =
-        Provider.of<StateProvider>(context, listen: false).isInitialValue!;
+        Provider.of<StateProvider>(context, listen: false).isInitialValue;
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.white,
                     child: TextFormField(
-                      onChanged: (r) {
+                      onChanged: (value) {
                         setState(() {});
                       },
                       obscureText: _isInitialValue == true ? true : false,
