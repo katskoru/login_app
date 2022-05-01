@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:login_page/Feed_Page/feed_page.dart';
-import 'package:login_page/login_page.dart';
-import 'package:login_page/Settings/settings_page.dart';
+import 'package:login_page/screens/feed_page.dart';
+import 'package:login_page/screens/login_page.dart';
+import 'package:login_page/screens/settings_page.dart';
 
-import 'Feed_Page/feed_page.dart';
+import 'feed_page.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({Key? key}) : super(key: key);

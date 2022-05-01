@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:login_page/social_page.dart';
+import 'package:login_page/state_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:login_page/screens/social_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,12 +10,12 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-bool _isInitialValue = true;
-
 class _LoginPageState extends State<LoginPage> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    bool _isInitialValue =
+        Provider.of<StateProvider>(context, listen: false).isInitialValue!;
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -70,11 +71,13 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           suffix: IconButton(
                             onPressed: () {
-                              setState(() {
-                                _isInitialValue = !_isInitialValue;
-                              });
+                              Provider.of<StateProvider>(context, listen: false)
+                                  .isInitialValue = !_isInitialValue;
                             },
-                            icon: _isInitialValue == true
+                            icon: Provider.of<StateProvider>(context,
+                                            listen: true)
+                                        .isInitialValue ==
+                                    true
                                 ? const Icon(Icons.visibility)
                                 : const Icon(Icons.visibility_off),
                           )),

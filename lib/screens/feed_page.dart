@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/my_card.dart';
+import 'package:login_page/widgets/my_card.dart';
 
 class FeedPage extends StatefulWidget {
   const FeedPage({Key? key}) : super(key: key);

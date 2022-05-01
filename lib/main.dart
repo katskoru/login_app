@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/state_provider.dart';
+import 'package:provider/provider.dart';
 
-import 'login_page.dart';
+import 'screens/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +14,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Colors.white),
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) {
+        return StateProvider();
+      },
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          appBarTheme: const AppBarTheme(color: Colors.white),
+          primarySwatch: Colors.blue,
+        ),
+        home: LoginPage(),
       ),
-      home: const LoginPage(),
     );
   }
 }
