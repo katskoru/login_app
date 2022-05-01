@@ -5,7 +5,7 @@ import 'package:login_page/screens/login_page.dart';
 import 'package:login_page/screens/settings_page.dart';
 import 'package:provider/provider.dart';
 
-import '../state_provider.dart';
+import '../provider/state_provider.dart';
 import 'feed_page.dart';
 
 class SocialPage extends StatefulWidget {

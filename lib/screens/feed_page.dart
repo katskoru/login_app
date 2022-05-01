@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_page/widgets/my_card.dart';
 import 'package:provider/provider.dart';
 
-import '../state_provider.dart';
+import '../provider/state_provider.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({Key? key}) : super(key: key);

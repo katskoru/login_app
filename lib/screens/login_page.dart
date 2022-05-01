@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/state_provider.dart';
+import 'package:login_page/provider/state_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:login_page/screens/social_page.dart';
 

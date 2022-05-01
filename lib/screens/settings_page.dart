@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../state_provider.dart';
+import '../provider/state_provider.dart';
 import 'login_page.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  bool _customTileExpanded = false;
-  bool _firstTileExpanded = false;
-  bool _lastTileExpanded = false;
   @override
   Widget build(BuildContext context) {
     final StateProvider myProvider =
