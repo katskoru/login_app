@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:login_page/my_card.dart';
 
 class FeedPage extends StatefulWidget {
+  const FeedPage({Key? key}) : super(key: key);
+
   @override
   State<FeedPage> createState() => _FeedPageState();
 }

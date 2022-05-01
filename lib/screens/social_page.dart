@@ -30,7 +30,7 @@ class _SocialPageState extends State<SocialPage> {
         break;
     }
     setState(() {
-      this._title = _temptitle;
+      _title = _temptitle;
     });
   }
 
@@ -50,9 +50,9 @@ class _SocialPageState extends State<SocialPage> {
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),
         onPageChanged: onPageChanged,
-        children: [
+        children: const [
           FeedPage(),
-          const SettingsPage(),
+          SettingsPage(),
         ],
       ),
     );
@@ -81,7 +81,7 @@ class _SocialPageState extends State<SocialPage> {
               ),
               onTap: () {
                 controller.animateToPage(0,
-                    duration: Duration(milliseconds: 400),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn);
               },
             ),
@@ -89,7 +89,7 @@ class _SocialPageState extends State<SocialPage> {
           SizedBox(
             height: 75.0,
             child: ListTile(
-              contentPadding: EdgeInsets.all(10.0),
+              contentPadding: const EdgeInsets.all(10.0),
               leading: const Icon(
                 Icons.account_circle,
                 color: Colors.black,
@@ -105,7 +105,7 @@ class _SocialPageState extends State<SocialPage> {
           SizedBox(
             height: 75.0,
             child: ListTile(
-              contentPadding: EdgeInsets.all(10.0),
+              contentPadding: const EdgeInsets.all(10.0),
               leading: const Icon(
                 Icons.chat,
                 color: Colors.black,
@@ -121,7 +121,7 @@ class _SocialPageState extends State<SocialPage> {
           SizedBox(
             height: 75.0,
             child: ListTile(
-              contentPadding: EdgeInsets.all(10.0),
+              contentPadding: const EdgeInsets.all(10.0),
               leading: const Icon(
                 Icons.settings,
                 color: Colors.black,
@@ -133,7 +133,7 @@ class _SocialPageState extends State<SocialPage> {
               ),
               onTap: () {
                 controller.animateToPage(1,
-                    duration: Duration(milliseconds: 400),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn);
               },
             ),

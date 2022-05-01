@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/Feed_Page/feed_page.dart';
+
 import 'package:login_page/social_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,8 +12,8 @@ class LoginPage extends StatefulWidget {
 bool _isInitialValue = true;
 
 class _LoginPageState extends State<LoginPage> {
-  @override
   TextEditingController controller = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: _isInitialValue == true ? true : false,
                       minLines: 1,
                       maxLines: 1,
-                      maxLength: 12,
+                      maxLength: 10,
                       controller: controller,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -75,12 +75,12 @@ class _LoginPageState extends State<LoginPage> {
                               });
                             },
                             icon: _isInitialValue == true
-                                ? Icon(Icons.visibility)
-                                : Icon(Icons.visibility_off),
+                                ? const Icon(Icons.visibility)
+                                : const Icon(Icons.visibility_off),
                           )),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   SizedBox(
                     width: 270.0,
                     height: 50.0,
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           ? () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                return SocialPage();
+                                return const SocialPage();
                               }));
                             }
                           : null,
