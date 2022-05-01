@@ -14,8 +14,9 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    bool _isInitialValue =
-        Provider.of<StateProvider>(context, listen: false).isInitialValue;
+    final StateProvider myProvider =
+        Provider.of<StateProvider>(context, listen: false);
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -60,7 +61,8 @@ class _LoginPageState extends State<LoginPage> {
                       onChanged: (value) {
                         setState(() {});
                       },
-                      obscureText: _isInitialValue == true ? true : false,
+                      obscureText:
+                          myProvider.isInitialValue == true ? true : false,
                       minLines: 1,
                       maxLines: 1,
                       maxLength: 10,
@@ -71,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           suffix: IconButton(
                             onPressed: () {
-                              Provider.of<StateProvider>(context, listen: false)
-                                  .isInitialValue = !_isInitialValue;
+                              myProvider.isInitialValue =
+                                  !myProvider.isInitialValue;
                             },
                             icon: Provider.of<StateProvider>(context,
                                             listen: true)

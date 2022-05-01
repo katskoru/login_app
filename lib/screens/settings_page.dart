@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../state_provider.dart';
 import 'login_page.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -15,6 +17,8 @@ class _SettingsPageState extends State<SettingsPage> {
   bool _lastTileExpanded = false;
   @override
   Widget build(BuildContext context) {
+    final StateProvider myProvider =
+        Provider.of<StateProvider>(context, listen: false);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -28,7 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: TextStyle(fontSize: 30),
                 ),
                 trailing: Icon(
-                  _firstTileExpanded
+                  myProvider.firstTileExpanded
                       ? Icons.arrow_drop_up
                       : Icons.arrow_drop_down,
                   size: 40.0,
@@ -39,7 +43,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus felis eros, id vulputate tellus vehicula non. Ut vitae laoreet lorem. Donec ac metus vestibulum erat semper fermentum. Etiam varius lectus et convallis gravida. Aenean id porta odio, faucibus malesuada orci.")),
                 ],
                 onExpansionChanged: (bool expanded) {
-                  setState(() => _firstTileExpanded = expanded);
+                  myProvider.firstTileExpanded = expanded;
                 },
               ),
             ),
@@ -56,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   style: TextStyle(fontSize: 30),
                 ),
                 trailing: Icon(
-                  _customTileExpanded
+                  myProvider.customTileExpanded
                       ? Icons.arrow_drop_up
                       : Icons.arrow_drop_down,
                   size: 40.0,
@@ -68,7 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   )),
                 ],
                 onExpansionChanged: (bool expanded) {
-                  setState(() => _customTileExpanded = expanded);
+                  myProvider.customTileExpanded = expanded;
                 },
               ),
             ),
@@ -83,7 +87,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title:
                     const Text("Data Policy", style: TextStyle(fontSize: 30)),
                 trailing: Icon(
-                  _lastTileExpanded
+                  myProvider.lastTileExpanded
                       ? Icons.arrow_drop_up
                       : Icons.arrow_drop_down,
                   size: 40.0,
@@ -94,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           "Pellentesque tellus justo, elementum vitae sagittis faucibus, varius quis nunc.")),
                 ],
                 onExpansionChanged: (bool expanded) {
-                  setState(() => _lastTileExpanded = expanded);
+                  myProvider.lastTileExpanded = expanded;
                 },
               ),
             ),
@@ -108,12 +112,10 @@ class _SettingsPageState extends State<SettingsPage> {
             TextButton(
               style: TextButton.styleFrom(primary: Colors.red),
               onPressed: () {
-                setState(() {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const LoginPage();
-                  }));
-                });
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return const LoginPage();
+                }));
               },
               child: const Text(
                 "Delete Account",

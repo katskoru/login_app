@@ -4,19 +4,16 @@ import 'package:provider/provider.dart';
 
 import '../state_provider.dart';
 
-class FeedPage extends StatefulWidget {
+class FeedPage extends StatelessWidget {
   const FeedPage({Key? key}) : super(key: key);
 
   @override
-  State<FeedPage> createState() => _FeedPageState();
-}
-
-class _FeedPageState extends State<FeedPage> {
-  @override
   Widget build(BuildContext context) {
+    final StateProvider myProvider =
+        Provider.of<StateProvider>(context, listen: false);
     List<String> imgList =
         Provider.of<StateProvider>(context, listen: true).imgList;
-    int index1 = Provider.of<StateProvider>(context, listen: false).index1;
+    int index1 = myProvider.index1;
     return Scaffold(
       body: Stack(
         children: [
@@ -26,8 +23,7 @@ class _FeedPageState extends State<FeedPage> {
                 String myTitle = (index + 1).toString();
                 return MyCard(
                   removeImg: () {
-                    Provider.of<StateProvider>(context, listen: false)
-                        .removeFromList(index);
+                    myProvider.removeFromList(index);
                   },
                   imgUrl: imgList[index],
                   newsTitle: myTitle,
@@ -49,8 +45,7 @@ class _FeedPageState extends State<FeedPage> {
                 ),
                 onPressed: index1 <= 3
                     ? () {
-                        Provider.of<StateProvider>(context, listen: false)
-                            .addToList();
+                        myProvider.addToList();
                       }
                     : null,
               ),

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:login_page/screens/feed_page.dart';
 import 'package:login_page/screens/login_page.dart';
 import 'package:login_page/screens/settings_page.dart';
+import 'package:provider/provider.dart';
 
+import '../state_provider.dart';
 import 'feed_page.dart';
 
 class SocialPage extends StatefulWidget {
@@ -16,24 +18,6 @@ class SocialPage extends StatefulWidget {
 class _SocialPageState extends State<SocialPage> {
   PageController controller = PageController();
 
-  String _title = "Social_Page";
-
-  void onPageChanged(int page) {
-    String _temptitle = "";
-
-    switch (page) {
-      case 0:
-        _temptitle = "Social_Page";
-        break;
-      case 1:
-        _temptitle = "Settings";
-        break;
-    }
-    setState(() {
-      _title = _temptitle;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +25,7 @@ class _SocialPageState extends State<SocialPage> {
         elevation: 6.0,
         iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
-          _title,
+          Provider.of<StateProvider>(context, listen: true).title,
           style: const TextStyle(color: Colors.black),
         ),
       ),
@@ -49,7 +33,8 @@ class _SocialPageState extends State<SocialPage> {
       body: PageView(
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),
-        onPageChanged: onPageChanged,
+        onPageChanged:
+            Provider.of<StateProvider>(context, listen: false).onPageChanged,
         children: const [
           FeedPage(),
           SettingsPage(),
@@ -143,12 +128,10 @@ class _SocialPageState extends State<SocialPage> {
           ),
           ElevatedButton(
             onPressed: () {
-              setState(() {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return const LoginPage();
-                }));
-              });
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
+                return const LoginPage();
+              }));
             },
             child: const Icon(
               Icons.power_settings_new,
