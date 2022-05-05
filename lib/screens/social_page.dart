@@ -8,15 +8,8 @@ import 'package:provider/provider.dart';
 import '../provider/state_provider.dart';
 import 'feed_page.dart';
 
-class SocialPage extends StatefulWidget {
-  const SocialPage({Key? key}) : super(key: key);
-
-  @override
-  State<SocialPage> createState() => _SocialPageState();
-}
-
-class _SocialPageState extends State<SocialPage> {
-  PageController controller = PageController();
+class SocialPage extends StatelessWidget {
+  final PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +22,7 @@ class _SocialPageState extends State<SocialPage> {
           style: const TextStyle(color: Colors.black),
         ),
       ),
-      endDrawer: myDrawer(),
+      endDrawer: myDrawer(context),
       body: PageView(
         controller: controller,
         physics: const NeverScrollableScrollPhysics(),
@@ -43,7 +36,7 @@ class _SocialPageState extends State<SocialPage> {
     );
   }
 
-  myDrawer() {
+  myDrawer(context) {
     return Drawer(
       elevation: 20.0,
       child: ListView(

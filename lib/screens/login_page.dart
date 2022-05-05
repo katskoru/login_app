@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                           ? () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                return const SocialPage();
+                                return SocialPage();
                               }));
                             }
                           : null,
